@@ -1,0 +1,115 @@
+## Ignore Visual Studio temporary files, build results, and
+## user-specific files
+
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.cache
+
+## Rider
+.idea/
+*.sln.iml
+
+## ASP.NET Core
+bin/
+obj/
+out/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## Build results
+*.dll
+*.exe
+*.app
+*.db
+*.pdb
+*.cache
+*.zip
+*.msi
+*.nupkg
+
+## Docker files
+*.log
+**/.containers/
+docker-compose.override.yml
+docker-compose.*
+Dockerfile.*
+.docker/
+
+## Publish folder
+publish/
+wwwroot/dist/
+wwwroot/node_modules/
+
+## NPM & Node
+node_modules/
+npm-debug.log*
+yarn-error.log
+package-lock.json
+.pnpm-debug.log
+
+## Logs
+*.log
+logs/
+log/
+
+## User secrets
+secrets.json
+
+## JetBrains Rider
+.idea/
+*.sln.iml
+
+## OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+## Others
+*.dbmdl
+*.bak
+*.sql
+*.sqlite
+
+# Optional: ignore test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+*.testsettings
+*.vsmdi
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+*.DotSettings
+
+# SonarQube
+.sonar/
+
+# Coverage
+coverage/
+coverage-results/
+lcov-report/
+*.lcov
+*.json
+
+# Environment
+.env
+.env.*
+
+# Temporary files
+*.tmp
+*.temp
+
+.containers
