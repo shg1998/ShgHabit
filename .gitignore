@@ -36,14 +36,6 @@ ScaffoldingReadMe.txt
 *.msi
 *.nupkg
 
-## Docker files
-*.log
-**/.containers/
-docker-compose.override.yml
-docker-compose.*
-Dockerfile.*
-.docker/
-
 ## Publish folder
 publish/
 wwwroot/dist/
