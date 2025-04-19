@@ -10,7 +10,13 @@ using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers();
+
+builder.Services.AddControllers(options =>
+{
+    //options.ReturnHttpNotAcceptable = true;
+    // enable Accept: Application/Xml in header of request!
+}).AddXmlSerializerFormatters();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
