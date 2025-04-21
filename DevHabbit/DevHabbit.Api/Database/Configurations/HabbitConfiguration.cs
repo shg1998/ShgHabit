@@ -19,6 +19,8 @@ namespace DevHabbit.Api.Database.Configurations
                 targetTypeBuilder.Property(e => e.Unit).HasMaxLength(100);
             });
             builder.OwnsOne(s => s.Milestone);
+
+            builder.HasMany(s => s.Tags).WithMany().UsingEntity<HabbitTag>();
         }
     }
 }

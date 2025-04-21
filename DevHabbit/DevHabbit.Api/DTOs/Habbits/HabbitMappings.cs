@@ -66,4 +66,32 @@ internal static class HabbitMappings
         };
         return habbit;
     }
+
+    public static void UpdateFromDto(this Habbit habbit, UpdateHabbitDto dto)
+    {
+        habbit.Name = dto.Name;
+        habbit.Description = dto.Description;
+        habbit.Type = dto.Type;
+        habbit.EndDate = dto.EndDate;
+
+        habbit.Frequency = new Frequency
+        {
+            Type = dto.Frequency.Type,
+            TimesPerPeriod = dto.Frequency.TimesPerPeriod
+        };
+
+        habbit.Target = new Target
+        {
+            Value = dto.Target.Value,
+            Unit = dto.Target.Unit
+        };
+
+        if (dto.Milestone != null)
+        {
+            habbit.Milestone ??= new Milestone();
+            habbit.Milestone.Target = dto.Milestone.Target;
+        }
+
+        habbit.UpdatedAtUtc = DateTime.UtcNow;
+    }
 }

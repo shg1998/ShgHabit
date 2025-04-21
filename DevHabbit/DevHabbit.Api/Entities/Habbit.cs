@@ -27,6 +27,10 @@ public sealed class Habbit
     public DateTime? UpdatedAtUtc { get; set; }
 
     public DateTime? LastCompletedAtUtc { get; set; }
+
+    public ICollection<HabbitTag> HabbitTags { get; set; }
+
+    public ICollection<Tag> Tags { get; set; }
 }
 
 public enum HabbitStatus

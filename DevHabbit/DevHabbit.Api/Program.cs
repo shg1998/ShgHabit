@@ -15,7 +15,9 @@ builder.Services.AddControllers(options =>
 {
     //options.ReturnHttpNotAcceptable = true;
     // enable Accept: Application/Xml in header of request!
-}).AddXmlSerializerFormatters();
+})
+    .AddNewtonsoftJson()
+    .AddXmlSerializerFormatters();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

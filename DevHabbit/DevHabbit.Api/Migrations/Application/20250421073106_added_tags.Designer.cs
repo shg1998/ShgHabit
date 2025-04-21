@@ -3,6 +3,7 @@ using System;
 using DevHabbit.Api.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DevHabbit.Api.Migrations.Application
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250421073106_added_tags")]
+    partial class added_tags
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,29 +76,6 @@ namespace DevHabbit.Api.Migrations.Application
                         .HasName("PK_HABBITS");
 
                     b.ToTable("HABBITS", "dev-habbit");
-                });
-
-            modelBuilder.Entity("DevHabbit.Api.Entities.HabbitTag", b =>
-                {
-                    b.Property<string>("HabbitId")
-                        .HasColumnType("character varying(500)")
-                        .HasColumnName("HABBIT_ID");
-
-                    b.Property<string>("TagId")
-                        .HasColumnType("character varying(500)")
-                        .HasColumnName("TAG_ID");
-
-                    b.Property<DateTime>("CreatedAtUtc")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("CREATED_AT_UTC");
-
-                    b.HasKey("HabbitId", "TagId")
-                        .HasName("PK_HABBIT_TAGS");
-
-                    b.HasIndex("TagId")
-                        .HasDatabaseName("IX_HABBIT_TAGS_TAG_ID");
-
-                    b.ToTable("HABBIT_TAGS", "dev-habbit");
                 });
 
             modelBuilder.Entity("DevHabbit.Api.Entities.Tag", b =>
@@ -214,28 +194,6 @@ namespace DevHabbit.Api.Migrations.Application
 
                     b.Navigation("Target")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("DevHabbit.Api.Entities.HabbitTag", b =>
-                {
-                    b.HasOne("DevHabbit.Api.Entities.Habbit", null)
-                        .WithMany("HabbitTags")
-                        .HasForeignKey("HabbitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_HABBIT_TAGS_HABBITS_HABBIT_ID");
-
-                    b.HasOne("DevHabbit.Api.Entities.Tag", null)
-                        .WithMany()
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_HABBIT_TAGS_TAGS_TAG_ID");
-                });
-
-            modelBuilder.Entity("DevHabbit.Api.Entities.Habbit", b =>
-                {
-                    b.Navigation("HabbitTags");
                 });
 #pragma warning restore 612, 618
         }
